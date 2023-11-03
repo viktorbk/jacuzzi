@@ -45,13 +45,17 @@
     </div>
 </body>
 <script>
+  var hitinn = 0
   setInterval(() => {
     console.log('ajax')
     $.ajax({
       url: "/hiti",
     }).done(function(temp) {
-      console.log('done', temp)
-      document.getElementById('hiti').innerHTML = temp
+      if (hitinn != temp) {
+        console.log('done', temp)
+        document.getElementById('hiti').innerHTML = temp
+        hitinn = temp
+      }
     });
   }, 2000)
 </script>
